@@ -2,9 +2,9 @@
 title: 月面ローバーゲーム (JavaScript)
 date: 2025-06
 tags: [JavaScript, Game]
-image: /images/moonrover.png
-video: /videos/moonrover.mp4
-link: https://github.com/your-repo/moonrover
+image: 
+video: 
+link: 
 ---
 
 JavaScriptを使用して月面ローバーのゲームを作成しました。  
@@ -17,6 +17,5 @@ JavaScriptを使用して月面ローバーのゲームを作成しました。
 
 この月面ローバーゲームは、今後ミッション機能を追加予定です。  
 深宇宙展にて、本物の月面ローバーを見て、あまりの大きさに衝撃を受けました。
-![スクリーンショット](/images/moonrover.png)
+![スクリーンショット]()
 
-<video src="/videos/moonrover.mp4" controls class="rounded-lg shadow"></video>

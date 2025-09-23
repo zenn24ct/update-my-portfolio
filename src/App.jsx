@@ -96,7 +96,7 @@ function Hero() {
           transition={{ duration: 0.6 }}
           className="text-4xl sm:text-6xl font-extrabold tracking-tight text-pink-900"
         >
-          Welcome to <span className="bg-gradient-to-r from-pink-500 via-rose-400 to-fuchsia-500 bg-clip-text text-transparent">Konya's World</span> 🐾
+          Welcome to <span className="bg-gradient-to-r from-pink-500 via-rose-400 to-fuchsia-500 bg-clip-text text-transparent">Kikka's World</span> 🐾
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -188,7 +188,7 @@ function AboutMe() {
     { icon: <BookOpen className="size-5" />, text: "Kindai Univ. / Informatics / B3" },
     { icon: <Code2 className="size-5" />, text: "Java / Python / C / React / Node-RED / Azure" },
     { icon: <Rocket className="size-5" />, text: "NASA GEP / IoT・宇宙系の創作" },
-    { icon: <Heart className="size-5" />, text: "猫の名前は Konya" },
+    { icon: <Heart className="size-5" />, text: "NO LIFE NO CAT" },
     { icon: <Sparkles className="size-5" />, text: "TOEIC 800+ を目指して学習中" },
   ];
   return (
@@ -281,7 +281,7 @@ function Footer() {
   return (
     <footer className="border-t border-pink-200/80 py-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-pink-900/80">
-        <p>© {new Date().getFullYear()} konya.site — Meow the future.</p>
+        <p>© {new Date().getFullYear()} kikka.site — Meow the future.</p>
         <div className="flex items-center gap-4">
           <a href="#about" className="hover:text-pink-900">About</a>
           <a href="#projects" className="hover:text-pink-900">Works</a>
