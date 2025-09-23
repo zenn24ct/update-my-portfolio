@@ -335,8 +335,11 @@ function Projects() {
 function Goals() {
   const todo = [
     { label: "可愛い猫フォントの導入（Google Fonts: Baloo / Fredoka）" },
+    { label: "写真や動画を貼り付ける" },
     { label: "IoT データのライブカードを追加（温度・湿度・明るさ）" },
-    { label: "英語版ページを追加 / 国際化ルーティング" },
+    { label: "現在時間を表示" },
+    { label: "簡単なもの(見せられそうなもの)を表示" },
+    { label: "英語版ページを追加 / 国際化ルーティング(?)" },
     { label: "作品ページを MD から自動生成" },
   ];
   return (
@@ -349,7 +352,7 @@ function Goals() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-sm text-pink-900/90">要望やコラボのアイデアがあればお気軽に連絡してください！</p>
+      {/* <p className="mt-4 text-sm text-pink-900/90"></p> */}
     </div>
   );
 }
