@@ -1,14 +1,3 @@
-<!-- ├─ 2025-06-moonrover.md
-├─ 2025-06-tetris.md
-├─ 2025-02-kc3.md
-├─ 2025-01-sushi.md
-├─ 2024-12-blackjack.md
-├─ 2024-10-hackathon58.md
-├─ 2024-09-nodered.md
-├─ 2024-05-m5stack.md
-├─ 2023-09-opencampus.md
-├─ 2023-08-kamepan.md -->
-
 ---
 title: 月面ローバーゲーム (JavaScript)
 date: 2025-06
@@ -27,7 +16,7 @@ JavaScriptを使用して月面ローバーのゲームを作成しました。
 - 石は毎回自動生成  
 
 この月面ローバーゲームは、今後ミッション機能を追加予定です。  
-
+深宇宙展にて、本物の月面ローバーを見て、あまりの大きさに衝撃を受けました。
 ![スクリーンショット](/images/moonrover.png)
 
 <video src="/videos/moonrover.mp4" controls class="rounded-lg shadow"></video>
