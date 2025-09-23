@@ -1,0 +1,20 @@
+const n=`---
+title: ブラックジャックGUIゲーム (Java)
+date: 2024-12
+tags: [Java, Swing, Game]
+image: 
+video: 
+---
+
+Java Swingを使用し、ブラックジャックのGUIゲームを作成しました。  
+
+- プレイヤーはカードを引く or スタンドを選択  
+- ディーラーは一定ルールで進行  
+- GUIでカード表示とゲーム進行を表現  
+
+オブジェクト指向とGUIプログラミングの基礎を学習しました。  
+
+![スクリーンショット]()
+
+
+`;export{n as default};
