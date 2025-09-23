@@ -1,5 +1,9 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
+
+import Projects from "./components/Projects";
+
+
 import {
   Github,
   Mail,
@@ -215,121 +219,12 @@ function AboutMe() {
 }
 
 /* -------------------------------- PROJECTS ------------------------------ */
-function Projects() {
-  // ここにあなたの作品を追記してOK（image/video は任意）。
-  const projects = [
-    {
-      date: "2025年6月",
-      title: "月面ローバーゲーム (JavaScript)",
-      desc: "JavaScriptを使用し月面探索ゲームを開発。矢印キーで操作、障害物を避けて目的地に到達。石に触れるとスコア獲得。今後ミッション機能を追加予定。",
-      image: "/images/moonrover.png",
-      video: "/videos/moonrover.mp4",
-    },
-    {
-      date: "2025年6月",
-      title: "テトリス風Webゲーム (JavaScript)",
-      desc: "JavaScriptでテトリス風のゲームを作成。ブロックを回転・移動させラインを揃えて得点。DOM操作やアニメーション実装を学習。",
-      image: "/images/tetris.png",
-      video: "/videos/tetris.mp4",
-    },
-    {
-      date: "2025年2月",
-      title: "KC3 サイト制作 (Svelte)",
-      desc: "チームでのサイト制作経験。フロントエンジニアを担当し、Svelteを使用。『IPPONグランプリ』をWebで再現。",
-      image: "/images/kc3.png",
-      link: "KC3のGitHubリポジトリ",
-    },
-    {
-      date: "2025年1月",
-      title: "寿司プロジェクト (Unity)",
-      desc: "寿司萬×リーガロイヤルホテルのコラボダイニングイベントに参加。Unityで映像演出を担当。",
-      image: "/images/sushi.png",
-      link: "近大寿司プロジェクト紹介リンク",
-    },
-    {
-      date: "2024年12月",
-      title: "ブラックジャックGUIゲーム (Java)",
-      desc: "Java SwingでGUIを用いたブラックジャックを作成。カード表示やゲーム進行を視覚的に表現。OOPとGUI基礎を習得。",
-      image: "/images/blackjack1.png",
-      video: "/videos/blackjack-demo.mp4",
-    },
-    {
-      date: "2024年10月",
-      title: "58ハッカソン参加",
-      desc: "フロントエンジニアを担当。チーム開発でWebサービスを制作。",
-    },
-    {
-      date: "2024年9月〜",
-      title: "Node-REDを用いたWebサイト制作",
-      desc: "授業の一環でNode-REDを学習。フロー制御やAPI連携を実装。",
-    },
-    {
-      date: "2024年5月〜11月",
-      title: "M5Stack 来園情報管理システム",
-      desc: "RFIDとM5Stackを用いて遊園地の混雑状況を可視化。Python + FlaskでWebアプリを構築し、画面設計も担当。",
-      image: "/images/m5stack.png",
-    },
-    {
-      date: "2023年10月",
-      title: "学園祭ゲーム制作",
-      desc: "学内の学園祭でWebゲームを制作。",
-    },
-    {
-      date: "2023年9月・11月",
-      title: "近大オープンキャンパス 講師",
-      desc: "プログラミング体験授業の講師を担当。",
-    },
-    {
-      date: "2023年8月",
-      title: "kamepan-run (JavaScript)",
-      desc: "初めてJavaScriptで制作したWebゲーム。マウスでキャラを操作し、クマを倒して玉を運ぶ。",
-      image: "/images/kamepan.png",
-    },
-  ];
 
-  return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((p, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, delay: 0.05 * i }}
-          className="group relative rounded-2xl border border-pink-200 bg-white p-5 hover:shadow-lg hover:shadow-pink-200/60"
-        >
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-200/30 to-transparent opacity-0 group-hover:opacity-100 transition" />
-          <div className="relative">
-            <div className="mb-2 text-sm text-pink-600">{p.date}</div>
-            <h3 className="font-semibold text-pink-900">{p.title}</h3>
-            <p className="mt-1 text-sm text-pink-900/90">{p.desc}</p>
+/**
+ * 
+ * @returns componentsに移行！
+ */
 
-            {p.image && (
-              <img src={p.image} alt={`${p.title} のスクリーンショット`} className="mt-3 rounded-lg shadow" />
-            )}
-            {p.video && (
-              <video src={p.video} controls className="mt-3 rounded-lg shadow" />
-            )}
-
-            <div className="mt-3 flex flex-wrap gap-2">
-              {(p.tags ?? []).map((t) => (
-                <span key={t} className="rounded-full border border-pink-300 bg-pink-50 px-2 py-0.5 text-xs text-pink-700">
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            {p.link && (
-              <a href={p.link} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm text-pink-700 hover:underline">
-                <ExternalLink className="size-4" /> View more
-              </a>
-            )}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
 
 /* --------------------------------- GOALS -------------------------------- */
 function Goals() {
