@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 import {
   Github,
   Mail,
@@ -85,6 +84,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden">
       <CatBubbles />
+      <FloatingLayer />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-28">
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -131,8 +131,36 @@ function CatBubbles() {
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[60rem] rounded-full blur-3xl bg-gradient-to-r from-pink-300/40 via-rose-200/40 to-fuchsia-300/40" />
       <div className="absolute -bottom-24 -left-20 h-72 w-[40rem] rounded-full blur-3xl bg-gradient-to-r from-pink-200/40 to-rose-200/40" />
-      <div className="absolute right-10 top-10 text-5xl opacity-20 select-none">🐱</div>
-      <div className="absolute left-8 bottom-8 text-4xl opacity-20 select-none">🐾</div>
+    </div>
+  );
+}
+
+/* Floating cat/cloud emojis — simple framer-motion keyframe loops */
+function FloatingLayer() {
+  // 固定の配置・動き（毎回同じ場所で優しい動き）
+  const items = useMemo(
+    () => [
+      { emoji: "🐱", top: "10%", left: "8%", delay: 0 },
+      { emoji: "🐾", top: "75%", left: "12%", delay: 0.2 },
+      { emoji: "☁️", top: "18%", left: "78%", delay: 0.4 },
+      { emoji: "☁️", top: "60%", left: "65%", delay: 0.6 },
+      { emoji: "🐱", top: "30%", left: "45%", delay: 0.8 },
+    ],
+    []
+  );
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      {items.map((it, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 0.25, y: [0, -12, 0], x: [0, 8, 0] }}
+          transition={{ duration: 6 + i, delay: it.delay, repeat: Infinity, ease: "easeInOut" }}
+          style={{ position: "absolute", top: it.top, left: it.left, fontSize: i % 2 ? "2rem" : "2.8rem" }}
+        >
+          {it.emoji}
+        </motion.div>
+      ))}
     </div>
   );
 }
@@ -153,20 +181,18 @@ function Section({ id, title, subtitle, children }) {
 /* ------------------------------- ABOUT ME ------------------------------- */
 function AboutMe() {
   const facts = [
-    { icon: <BookOpen className="size-5" />, text: "Kindai Univ. / Imformatic / Bachelor 3" },
-    { icon: <Code2 className="size-5" />, text: "Java / Python / C / React / Node-RED / Azure / ..." },
-    { icon: <Rocket className="size-5" />, text: "NASA GEP / IoT & 宇宙系の創作" },
-    { icon: <Hobby className="size-5" />, text: "猫、旅行、油絵、英語学習、ドラマ映画鑑賞" },
-    { icon: <Goal className="size-5" />, text: "2025年のうちにTOEIC800点突破(7月時点: 710点)"}
-    
+    { icon: <BookOpen className="size-5" />, text: "Kindai Univ. / Informatics / B3" },
+    { icon: <Code2 className="size-5" />, text: "Java / Python / C / React / Node-RED / Azure" },
+    { icon: <Rocket className="size-5" />, text: "NASA GEP / IoT・宇宙系の創作" },
+    { icon: <Heart className="size-5" />, text: "猫の名前は Konya" },
+    { icon: <Sparkles className="size-5" />, text: "TOEIC 800+ を目指して学習中" },
   ];
   return (
     <div className="grid md:grid-cols-2 gap-8">
       <div className="rounded-2xl border border-pink-200 bg-white p-6">
         <p>
           はじめまして、Kikka です。プロダクトを作って人の生活をちょっと楽に、ちょっと楽しくするのが目標です。最近は
-          <span className="font-medium"> React × Tailwind × Framer Motion</span> で UI を作ったり、
-          IoTのダッシュボードや強化学習の実験、Azure の学習などに取り組んでいます。
+          <span className="font-medium"> React × Tailwind × Framer Motion</span> で UI を作ったり、IoT のダッシュボードや強化学習の実験、Azure の学習などに取り組んでいます。
         </p>
         <ul className="mt-4 grid sm:grid-cols-2 gap-3">
           {facts.map((f, i) => (
@@ -180,69 +206,126 @@ function AboutMe() {
       <div className="rounded-2xl border border-pink-200 bg-white p-6">
         <h3 className="font-semibold mb-2">好きなこと</h3>
         <p className="text-sm text-pink-900/90">
-          猫、宇宙デザイン、UIアニメーション、クラウドインフラの資格勉強。これまでに作成した作品は下の "My works" に載せています。
+          猫、宇宙デザイン、UIアニメーション、クラウドインフラの勉強。これまでに作成した作品は下の "My works" に載せています。
         </p>
-        <div className="mt-4 text-5xl select-none">🐱🌸✨</div>
+        <div className="mt-4 text-5xl select-none">🐱☁️🌸</div>
       </div>
     </div>
   );
 }
 
 /* -------------------------------- PROJECTS ------------------------------ */
-const projects = [
-  {
-    title: "Voyager IoT Dash",
-    desc: "Next.js + Node-RED でセンサー値を可視化するダッシュボード。",
-    tags: ["Next.js", "IoT", "API"],
-    link: "https://github.com/",
-  },
-  {
-    title: "CarRacing PPO",
-    desc: "rl_zoo3 を使った強化学習の学習・評価レポート。",
-    tags: ["RL", "PPO", "Python"],
-    link: "https://github.com/",
-  },
-  {
-    title: "Portfolio (this site)",
-    desc: "React + Tailwind + Framer Motion を GitHub Pages で常時公開。",
-    tags: ["React", "Tailwind", "FramerMotion"],
-    link: "https://github.com/",
-  },
-];
-
-
-
 function Projects() {
+  // ここにあなたの作品を追記してOK（image/video は任意）。
+  const projects = [
+    {
+      date: "2025年6月",
+      title: "月面ローバーゲーム (JavaScript)",
+      desc: "JavaScriptを使用し月面探索ゲームを開発。矢印キーで操作、障害物を避けて目的地に到達。石に触れるとスコア獲得。今後ミッション機能を追加予定。",
+      image: "/images/moonrover.png",
+      video: "/videos/moonrover.mp4",
+    },
+    {
+      date: "2025年6月",
+      title: "テトリス風Webゲーム (JavaScript)",
+      desc: "JavaScriptでテトリス風のゲームを作成。ブロックを回転・移動させラインを揃えて得点。DOM操作やアニメーション実装を学習。",
+      image: "/images/tetris.png",
+      video: "/videos/tetris.mp4",
+    },
+    {
+      date: "2025年2月",
+      title: "KC3 サイト制作 (Svelte)",
+      desc: "チームでのサイト制作経験。フロントエンジニアを担当し、Svelteを使用。『IPPONグランプリ』をWebで再現。",
+      image: "/images/kc3.png",
+      link: "KC3のGitHubリポジトリ",
+    },
+    {
+      date: "2025年1月",
+      title: "寿司プロジェクト (Unity)",
+      desc: "寿司萬×リーガロイヤルホテルのコラボダイニングイベントに参加。Unityで映像演出を担当。",
+      image: "/images/sushi.png",
+      link: "近大寿司プロジェクト紹介リンク",
+    },
+    {
+      date: "2024年12月",
+      title: "ブラックジャックGUIゲーム (Java)",
+      desc: "Java SwingでGUIを用いたブラックジャックを作成。カード表示やゲーム進行を視覚的に表現。OOPとGUI基礎を習得。",
+      image: "/images/blackjack1.png",
+      video: "/videos/blackjack-demo.mp4",
+    },
+    {
+      date: "2024年10月",
+      title: "58ハッカソン参加",
+      desc: "フロントエンジニアを担当。チーム開発でWebサービスを制作。",
+    },
+    {
+      date: "2024年9月〜",
+      title: "Node-REDを用いたWebサイト制作",
+      desc: "授業の一環でNode-REDを学習。フロー制御やAPI連携を実装。",
+    },
+    {
+      date: "2024年5月〜11月",
+      title: "M5Stack 来園情報管理システム",
+      desc: "RFIDとM5Stackを用いて遊園地の混雑状況を可視化。Python + FlaskでWebアプリを構築し、画面設計も担当。",
+      image: "/images/m5stack.png",
+    },
+    {
+      date: "2023年10月",
+      title: "学園祭ゲーム制作",
+      desc: "学内の学園祭でWebゲームを制作。",
+    },
+    {
+      date: "2023年9月・11月",
+      title: "近大オープンキャンパス 講師",
+      desc: "プログラミング体験授業の講師を担当。",
+    },
+    {
+      date: "2023年8月",
+      title: "kamepan-run (JavaScript)",
+      desc: "初めてJavaScriptで制作したWebゲーム。マウスでキャラを操作し、クマを倒して玉を運ぶ。",
+      image: "/images/kamepan.png",
+    },
+  ];
+
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((p, i) => (
-        <motion.a
+        <motion.div
           key={i}
-          href={p.link}
-          target="_blank"
-          rel="noreferrer"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.05 * i }}
-          className="group relative block rounded-2xl border border-pink-200 bg-white p-5 hover:shadow-lg hover:shadow-pink-200/60"
+          className="group relative rounded-2xl border border-pink-200 bg-white p-5 hover:shadow-lg hover:shadow-pink-200/60"
         >
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-200/30 to-transparent opacity-0 group-hover:opacity-100 transition" />
           <div className="relative">
+            <div className="mb-2 text-sm text-pink-600">{p.date}</div>
             <h3 className="font-semibold text-pink-900">{p.title}</h3>
             <p className="mt-1 text-sm text-pink-900/90">{p.desc}</p>
+
+            {p.image && (
+              <img src={p.image} alt={`${p.title} のスクリーンショット`} className="mt-3 rounded-lg shadow" />
+            )}
+            {p.video && (
+              <video src={p.video} controls className="mt-3 rounded-lg shadow" />
+            )}
+
             <div className="mt-3 flex flex-wrap gap-2">
-              {p.tags.map((t) => (
+              {(p.tags ?? []).map((t) => (
                 <span key={t} className="rounded-full border border-pink-300 bg-pink-50 px-2 py-0.5 text-xs text-pink-700">
                   {t}
                 </span>
               ))}
             </div>
-            <div className="mt-4 inline-flex items-center gap-1 text-sm text-pink-700">
-              <ExternalLink className="size-4" /> View
-            </div>
+
+            {p.link && (
+              <a href={p.link} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm text-pink-700 hover:underline">
+                <ExternalLink className="size-4" /> View more
+              </a>
+            )}
           </div>
-        </motion.a>
+        </motion.div>
       ))}
     </div>
   );
@@ -266,9 +349,7 @@ function Goals() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-sm text-pink-900/90">
-        要望やコラボのアイデアがあればお気軽に連絡してください！
-      </p>
+      <p className="mt-4 text-sm text-pink-900/90">要望やコラボのアイデアがあればお気軽に連絡してください！</p>
     </div>
   );
 }
@@ -278,8 +359,7 @@ function ContactCTA() {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between gap-6 rounded-2xl border border-pink-200 bg-gradient-to-br from-pink-100 to-rose-100 p-6">
       <div>
-        <h3 className="text-xl font-semibold text-pink-900">Let’s make something cute together</h3>
-        <p className="text-sm text-pink-900/90">GitHub でフォーク、またはメールで連絡してね 🐾</p>
+        <h3 className="text-xl font-semibold text-pink-900">my email address: 2312110087y@kindai.ac.jp</h3>
       </div>
       <div className="flex items-center gap-3">
         <a
@@ -290,10 +370,7 @@ function ContactCTA() {
         >
           <Github className="size-4" /> GitHub
         </a>
-        <a
-          href="mailto:hello@example.com"
-          className="inline-flex items-center gap-2 rounded-xl bg-pink-500 px-4 py-2 font-medium text-white hover:bg-pink-400"
-        >
+        <a href="mailto:hello@example.com" className="inline-flex items-center gap-2 rounded-xl bg-pink-500 px-4 py-2 font-medium text-white hover:bg-pink-400">
           <Mail className="size-4" /> Email
         </a>
       </div>
