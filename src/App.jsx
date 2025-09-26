@@ -191,10 +191,15 @@ function AboutMe() {
     { icon: <Heart className="size-5" />, text: "NO LIFE NO CAT" },
     { icon: <Sparkles className="size-5" />, text: "TOEIC 800+ を目指して学習中" },
   ];
+  //追加
+  const profileSrc = `${import.meta.env.BASE_URL}images/profile.jpg`;
+
   return (
     <div className="grid md:grid-cols-2 gap-8">
       <div className="rounded-2xl border border-pink-200 bg-white p-6">
         <p>
+          {/* 追加 */}
+          <img src={profileSrc} alt="Kikka Takami" className="w-32 h-32 rounded-full mx-auto mb-4" />
           はじめまして、Kikka です。プロダクトを作って人の生活をちょっと楽に、ちょっと楽しくするのが目標です。最近は
           <span className="font-medium"> React × Tailwind × Framer Motion</span> で UI を作ったり、IoT のダッシュボードや強化学習の実験、Azure の学習などに取り組んでいます。
         </p>
