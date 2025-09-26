@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";

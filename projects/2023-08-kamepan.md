@@ -6,5 +6,3 @@ tags: [JavaScript, Game]
 
 初めてJavaScriptで作成したWebゲーム。  
 プレイヤーはカメパンを操作して敵を倒し、玉を運ぶことを目指します。  
-
-![スクリーンショット](/images/kamepan-run.png)
