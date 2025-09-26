@@ -192,7 +192,7 @@ function AboutMe() {
     { icon: <Sparkles className="size-5" />, text: "TOEIC 800+ を目指して学習中" },
   ];
   //追加
-  const profileSrc = `${import.meta.env.BASE_URL}images/profile.jpg`;
+  const profileSrc = `${import.meta.env.BASE_URL}images/profile.png`;
 
   return (
     <div className="grid md:grid-cols-2 gap-8">
