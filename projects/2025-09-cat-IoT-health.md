@@ -1,9 +1,7 @@
 ---
-title: テトリス風Webゲーム (JavaScript)
+title: ペットの健康管理サイト
 date: 2025-06
 tags: [JavaScript, Game]
-image: /images/tetorisfu.png
-video: /videos/tetorisVideo.mp4
 ---
 
 JavaScriptでテトリス風のゲームを開発しました。  
@@ -12,6 +10,4 @@ JavaScriptでテトリス風のゲームを開発しました。
 このプロジェクトでは、DOM操作やゲームロジック、アニメーションの基礎を実践的に学ぶ良い機会になりました。
 また、ゲームのロジックやアニメーションの実装を通じて、プログラミングの楽しさを再実感しました。
 
-![スクリーンショット](/images/tetorisfu.png)
-<video src="/videos/tetorisVideo.mp4" controls class="rounded-lg shadow"></video>
-
+![スクリーンショット]()

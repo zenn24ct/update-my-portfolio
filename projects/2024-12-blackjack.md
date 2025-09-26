@@ -2,8 +2,6 @@
 title: ブラックジャックGUIゲーム (Java)
 date: 2024-12
 tags: [Java, Swing, Game]
-image: 
-video: 
 ---
 
 Java Swingを使用し、ブラックジャックのGUIゲームを作成しました。  
