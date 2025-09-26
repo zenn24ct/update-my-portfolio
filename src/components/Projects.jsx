@@ -30,6 +30,20 @@ const mediaMap = {
     images: ["/images/tetris.png"],
     videos: ["/videos/tetris.mp4"],
   },
+  "2023-08-kamepan": {
+    videos: ["/videos/kamepan.mp4"],  
+  },
+  "2025-02-kc3": {
+    images: ["/images/wara1.png"],
+  },
+
+  "2024-12-blackjack": {
+    images: ["/images/blackjack1.png", "/images/blackjack2.png"],
+  },
+
+  "2025-01-sushi": {
+    images: ["/images/sushi-sample.png"],
+  },
 };
 
 const files = import.meta.glob("/projects/*.md", {
