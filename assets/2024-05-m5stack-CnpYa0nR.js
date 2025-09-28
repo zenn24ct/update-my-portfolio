@@ -1,0 +1,12 @@
+const n=`---
+title: M5Stack 来園情報管理システム
+date: 2024-05
+tags: [M5Stack, Python, Flask, IoT]
+---
+
+遊園地内の混雑状況を来場者にリアルタイムで伝えるシステムを開発しました。  
+
+- RFIDリーダーで来園者の流れを検出  
+- Python + FlaskでWebアプリ構築  
+- M5Stackの画面で混雑状況を表示  
+`;export{n as default};
